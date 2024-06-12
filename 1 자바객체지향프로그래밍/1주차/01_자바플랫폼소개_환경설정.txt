@@ -1,0 +1,55 @@
+*자바 개발 4가지 플랫폼
+1. JavaSE	2. JavaEE	3. JavaME	4. JavaFX
+
+*JavaSE개발환경을 구축하기 위해서 설치하는 프로그램
+- JDK
+
+*JDK를 설치하면 PC에 설치되는 것들
+- JVM, API, Tool
+
+*자바 프로그램을 구동하는 프로세서
+- JVM
+
+
+**bin 폴더 : 구동하기위한 도구
+**lib 폴더: api
+**conf 폴더 : 환경설정 관련
+
+cmd 명령어
+1. CD(Change Directory) 폴더 이동
+- CD 폴더명  ex) CD Temp
+- CD \  => 최상위 폴더로 이동 (C: )
+
+2. dir(Directory) 경로의 파일, 폴더 보기
+
+
+cmd에서 컴파일 (후에 class파일 생성)
+javac 문서명  ex) C:\Temp>javac Main.java   (대소문자 구분 O)
+
+보기
+java 문서명   ex) C:\Temp>java Main.javar
+
+
+Quiz 1. 자바에서 컴파일 명령어와 실행 명령어를 쓰시오
+-javac 소스명.java   //  java 소스명.java
+
+Quiz 2. 객체지향 프로그래밍 언어란 한 마디로 쓰면
+-각각의 기능(변수, 함수등)을 가진 객체들을 만들고 불러와서 작업하는 방식의 프로그래밍
+
+Quiz 3. JavaSE 프로그램의 기본틀을 작성하시오( Hello라는 메인 클래스를 만들어 볼것)
+- public class Hello {
+	public static void main(String[] args) {
+		System.out.println("Hello");
+	}
+}
+
+Quiz 4. 객체지향 프로그램에서 클래스 안에서 특정 기능(동작)을 처리하는 함수를 무엇이라 하는가?
+-메소드(Method)
+
+Quiz 5. JavaSE 프로그램에서 프로그램의 진입 점(시작점)이며 가장 먼저 실행되는 메서드의 이름을 쓰시오
+-main
+
+Quiz 6. JVM(Java Virtual Machine)이란 무엇인가
+-java로 작성된 프로그램을 실행시켜주기 위한 것으로 여러 os에서 플러그인 없이 사용 할 수 있게 해준다.
+
+
