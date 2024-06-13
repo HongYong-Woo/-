@@ -18,3 +18,11 @@ new 클래스명  -> 힙메모리에 할당
 4. 매개변수		스택
 
 1byte = 8bit
+
+preivate
+default
+protected
+public
+
+
+alt + insert => getter , setter 생성 가능
