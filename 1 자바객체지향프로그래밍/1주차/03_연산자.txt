@@ -1,0 +1,61 @@
+**빌드 시스템(관리사무소?)
+maven
+gradle
+
+
+****2024-06-17 수업 Day4****
+
+ 연산자 == 오퍼랜드(operand)
+
+byte b = 100;
+byte result = -b; <== 에러
+정수타입(byte, short, int) 들의 연산의 결과는 int
+
+
+*증감 연산자
+//여러개의 연산자가 포함된 언산식에서는 증감연산자의 위치에 따라 결과가 달라짐.
+int result1 = ++a +10; //결과값: 12
+int result2 = b++ + 10;//결과값: 11
+
+*오버플로우 : 타입이 허용하는 최대값을 벗어나는 것
+*언더플로우 : 타입이 허용하는 최소값을 벗어나는 것
+
+ !!!**메모리를 너무 먹어서 느려진다 싶으면***!!!
+help => edit custom VM option => 2048을 1010으로  (heap사이즈 조정)
+
+*정수 연산
+산술 연산을 정확하게 계산하려면 실수 타입 사용 X
+
+*나눗셈 연산에서 예외 방지 (0으로 나누는 것)
+Double.isInfinite()  /  Double.isNaN() 사용
+
+*비교 연산자
+문자열(String)은 equals() 사용 (==, != 사용 불가) 주소값을 비교하기 때문
+//예외 check!
+//0.1f != 0.1  ==> float 과 double 이기 때문(정밀도 차이)
+
+*논리연산자
+AND(&& , &) ==>논리 곱 
+OR (|| , |) 	==> 논리 합
+XOR(^) ==> 베타적 논리합		=>가산기에 사용
+NOT(!) ==> 논리 부정
+
+*비트 논리 연산자
+정수(byte, short, int, long)만 가능
+//방법1: 비트 논리곱 연산으로 Unsigned 정수 얻기
+int unsignedInt =receiveData & 255;
+
+//방법2: 자바 API를 이용해서 Unsigned 정수 얻기
+int unsignedInt2 = Byte.toUnsignedInt(receiveData);
+
+
+*비트 이동 연산자(shift 연산자)
+*대입 연산자
+
+***카멜 표기법(소문자로 시작해서 새로운 단어가 나오면 대문자)***
+ex) unsignedInt
+
+
+
+
+
