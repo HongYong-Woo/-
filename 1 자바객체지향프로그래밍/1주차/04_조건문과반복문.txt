@@ -1,0 +1,37 @@
+*****2024-06-18 수업 5일차*****
+
+*조건문과 반복문
+
+**Math.randim()  // 0.0 <= x < 1.0 범위
+ex)   (int)(Math.random()*6) + 1  => 1~6중 하나
+
+
+*switch 문  : 대신 ->(림다식) 사용 가능(자바12부터 가능) break 필요 x 
+switch (grade) {
+	case 'A','a'-> {
+		System.out.println("우수 회원");		
+	}
+	case 'B','b'-> {
+		System.out.println("일반 회원");
+	}
+	default -> {
+		System.out.println("손님");
+	}
+}
+		
+switch (grade) {
+	case 'A','a' -> System.out.println("우수 회원");
+	case 'B','b' -> System.out.println("일반 회원");
+	default -> System.out.println("손님");			
+}
+
+
+ 타입변수에 score2에 grade값에 따라
+        int score2 = switch (grade) {
+            case "A" -> 100;
+            case "B" -> {
+                int result = 100 - 20; //java13 부터 지원
+                yield result;
+            }
+            default -> 60; //yield 사용시 반드시 default 필요
+        }; 
