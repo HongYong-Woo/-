@@ -35,3 +35,14 @@ switch (grade) {
             }
             default -> 60; //yield 사용시 반드시 default 필요
         }; 
+
+
+****2024-06-19 수업 6일차****
+
+*출력값이 콘솔창에 표현되는 방식 : CLI (Command Line Interface) 
+*사용자를 위해 그래픽 화면을 제공하는 방식 : GUI
+*사용자 인터페이스가 갖춰야 하는 것
+-생성 읽기 갱신  제거
+   C     R     U     D
+
+
