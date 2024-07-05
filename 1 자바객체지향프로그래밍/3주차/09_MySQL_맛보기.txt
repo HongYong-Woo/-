@@ -1,0 +1,55 @@
+*******2024-07-03 수업 16일차********
+파워쉘에서 
+SETX PATH "C:\Program Files\MySQL\MySQL Server 8.0\bin:%PATH%"
+=> 환경변수에서 하던것을 한번에 *쉬프트키 + insert키
+윈도우 + 쉬프트 + s => 캡처
+
+time zone
+
+
+
+[mysqld]
+default-time-zone='+0:00'
+
+*******2024-07-04 수업 17일차*******
+~~~~~~Reader 문자열로 받음 (ex) InputStreamReader)
+not null  => null 허용X
+describe (desc) 클래스명
+
+ArrayList<Student> ==> <>(제너릭) : 저장소에 student 객체만 저장되도록 타입 제한
+
+
+
+
+ctrl + alt + T
+
+*****2024-07-05 수업 17일차******
+jdbc 라이브러리 ==> Driver
+
+INSERT INTO student VALUES ('aaa', 50, 50, 50, 50, 200, 50.0, 'F')
+
+
+
+DDL(데이터 정의 언어) : CREATE, ALTER, DROP	질의어 : SELECT
+DML(데이터 조작어) : INSERT, DELETE, UPDATE 
+DCL(데이터 제어어) : COMMIT, ROLLBACK, REVOKE, GRANT
+
+
+
+
+=====MySQL 명령어======
+net start mysql
+mysqladmin -u root -p shutdown
+mysqladmin -u root -p ping
+
+
+alter table  => 테이블 수정  
+ex)  alter table student add column total int not null  =add=> 열추가
+      alter table student change column total int not null =change=> 열 이름 수정
+ 	alter table users modify username varchar(50); 
+	alter table users drop column userpwd; ==>열삭제
+
+create schema ssgdatabase;
+drop table student;
+
+
