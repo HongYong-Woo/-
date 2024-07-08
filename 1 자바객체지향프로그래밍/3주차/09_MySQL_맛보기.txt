@@ -38,7 +38,8 @@ DCL(데이터 제어어) : COMMIT, ROLLBACK, REVOKE, GRANT
 
 
 =====MySQL 명령어======
-net start mysql
+net start mysql	=>서버 시작
+net stop mysql	=> 서버 종료
 mysqladmin -u root -p shutdown
 mysqladmin -u root -p ping
 
