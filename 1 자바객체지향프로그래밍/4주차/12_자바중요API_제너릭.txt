@@ -14,3 +14,35 @@ Exception	     Error
 자바는 예외가 발생하면 예외 클래스로부터 객체를 생성한다.
 이 객체는 예외 처리시 사옹된다.
 자바의 모든 에러와 예외 클래스는 throwable 클래스로부터 상속 받아 만들어진다.
+
+
+
+******2024-07-09 수업18일차******
+
+LomBok 라이브러리란?
+어노테이션(@) 기반으로 코드 자동완성 기능을 제공하는 라이브러리
+spring, spring boot 로 web 개발을 할때 반복되는 코드가 가독성을 떨어트리므로
+이러한 반복적 코드를 제공하는 라이브러리를 사용한다.
+이때 가장 일반적으로 사용하는 라이브러리가 롬복이다.
+Legacy 시스템(AS-IS)를 TO-BE 로 개선하는 작업시 사용한다.
+생산성이나 편의성을 위해 사용
+
+
+ clone()
+자바 Object 클래스의 clone()메서드는 객체복사 메서드
+
+얕은 복사(shallow copy) : 주소값을 복사
+깊은 복사(deep copy) : 실제 값을 복사(새로운 메모리 공간에 복사)
+
+
+implements Cloneable 필요
+protected Object clone() throws CloneNotSupportedException {
+	return super.clone();
+}
+
+
+박싱, 언박싱
+Integer obj = 100;	=> 박싱 
+int val = obj; 	=> 언박싱
+
+
