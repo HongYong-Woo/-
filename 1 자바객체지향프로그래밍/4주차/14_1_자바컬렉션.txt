@@ -92,7 +92,38 @@ TreeMap : 이진트리 기반
 -entry를 저장하면 key를 기준으로 자동 정렬된다.
 
 
+*******2024-07-12 수업21일차*******
 
+Comparable   => implements Comparator<Person>
+-기본 정렬(int, long => 오름차순, String => 사전순 정렬)을 구현할떄 사용하는 인테페이스 
+int compareTo(T o)   => 메소드를 재정의해서 사용하겠다. 파라미터 1개
+
+배열정렬 : Arrays.sort(array)
+객체 정렬 : Collections.sort(list)
+
+Comparator  => implements Comparator<Person>
+-Comparable에서 제공하지않는 정렬을 구현할때 사용
+(int, long => 내림차순, String => 사전역순 정렬, 여러개의 기준으로 정렬할때)
+Comparator는 따로 클래스를 만들어 사용하기 떄문에 결합도가 낮아진다.
+int compare(T o1, T o2)	=> 파라미터 2개
+
+배열정렬 : Arrays.sort(array, myComparator)
+객체 정렬 : Collections.sort(list, Comparator)
+
+
+2.객체를 비교 할 수 있도록 만든다.
+  기본타입 값 부등호로 비교한다.
+
+-객체는 사용자가 기준을 정해주지 않으면 어떤 객체가 더 높은 우선순위를 갖는지 판단 할 수 없다.
+ 그러므로 비교기가 필요하다.
+
+3. Java.lan.Comparable 와 Java,util.sComparator 비교
+-int compareTo(T o)  : 자기 자신과 매개변수 객체를 비교
+			     자기 자신을 기준으로 대소 관계를 파악한다.
+
+-int compare(T o1, T o2) : 두 매개변수 객체를 비교
+
+결론 : 본질적으로 비교하는 것은 같으나 비교대상이 다르다.
 
 
 
