@@ -27,8 +27,8 @@ ctrl + alt + T
 jdbc 라이브러리 ==> Driver
 
 INSERT INTO student VALUES ('aaa', 50, 50, 50, 50, 200, 50.0, 'F')
-
-
+UPDATE 테이블이름 SET 필드이름1=데이터값1, 필드이름2=데이터값2, ... WHERE 필드이름=데이터값
+DELETE FROM 테이블이름 WHERE 필드이름=데이터값
 
 DDL(데이터 정의 언어) : CREATE, ALTER, DROP	질의어 : SELECT
 DML(데이터 조작어) : INSERT, DELETE, UPDATE 
