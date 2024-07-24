@@ -1,0 +1,48 @@
+**********2024-07-24 28일차**********
+HR(Human Resource)
+ERD(Entity Relation Diagram)
+
+1.SELECT (데이터 검색) : 테이블에 저장된 데이터를 추출하는 명령어
+				표시하고자 하는 열(column)만 선택하여 출력 할수 있다.(선택범위 지정)
+
+concat()
+as
+not
+BETWEEN a AND b
+ORDER BY 기준으로할필드명
+ASC => 오름차순
+DESC => 내림차순
+
+와일드 문자 : %, [], [^], _
+
+[0-5] : 0-5 사이의 숫자로 시작하는 문자열
+[^0-5] : 0-5 사이 숫자로 시작하지 않는 문자열
+_ : 득정 위치에 있는 1개의 문자와 일치 '_구%'   => 축구 O   발야구 X ('__구%')
+
+SELECT 실행 순서
+1. FROM
+2. WHERE
+3. Group by
+4. Having
+5. SELECT
+6. ORDER BY
+
+SQL문은 실행순서가 없는 비절차적인 언어지만 내부적 실행 순서는 존재한다
+
+
+조인(join) : 한테이블의 행을 다른 테이블의 행에 연결하여 두개 이상의 테이블을 결합하는 연산
+
+-고객과 고객의 주문에 대한 데이터를 모두 출력
+select *
+from customer, orders
+where customer.custid = orders.custid; -- 두 테이블의 연결 조건을 추가
+
+
+하나의 스키마에서 여러 테이블이 존재하고 저장하고 있다.
+테이블간의 관계를 기반으로 수행되는 연산
+join sql :1999 문법 이전과 이후 구분
+-join 종류는 등가 조인(equi join) ==> 오라클		:	natural / inner join
+-outer join (외부 조인)	==> left outer join, right outer join
+-self join (자체 조인)
+-비등가 조인
+-카티시안 곱 ==> cross join

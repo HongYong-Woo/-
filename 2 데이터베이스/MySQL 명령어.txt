@@ -1,0 +1,40 @@
+ctrl + alt + T
+
+사용자 계정 생성
+create user hr@localhost identified by 'hr';
+
+권한 부여
+grant all privileges on hr.* to hr@localhost with grant option;
+
+flush privileges;
+
+계정권한 보기
+show grants for hr@localhost;
+
+계정 삭제
+drop user hr@localhost;
+
+db생성
+create schema ssgdatabase;
+
+table삭제
+drop table student;
+
+
+INSERT INTO student VALUES ('aaa', 50, 50, 50, 50, 200, 50.0, 'F')
+UPDATE 테이블이름 SET 필드이름1=데이터값1, 필드이름2=데이터값2, ... WHERE 필드이름=데이터값
+DELETE FROM 테이블이름 WHERE 필드이름=데이터값
+
+net start mysql	=>서버 시작
+net stop mysql	=> 서버 종료
+mysqladmin -u root -p shutdown
+mysqladmin -u root -p ping
+
+
+alter table  => 테이블 수정  
+ex)  alter table student add column total int not null  =add=> 열추가
+      alter table student change column total int not null =change=> 열 이름 수정
+ 	alter table users modify username varchar(50); 
+	alter table users drop column userpwd; ==>열삭제
+
+
