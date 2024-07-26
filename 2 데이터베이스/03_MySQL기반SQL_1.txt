@@ -87,3 +87,53 @@ alter를 이용해서 키 지정이 필요.
 ALTER table usertbl2 add CONSTRAINT pk_usertbl2 PRIMARY KEY(userid);
 
 -총합 중간합계가 필요한 경우가 있다. GROUP BY 절과 WITH ROLLUP문을 사용한다.
+
+
+**********2024-07-26 수업30일차**********
+
+-- 출력하는 개수를 제한하는 LIMIT
+SELECT employee_id, hire_date FROM employees ORDER BY hire_date ASC LIMIT 10;
+SELECT employee_id, hire_date FROM employees ORDER BY hire_date ASC LIMIT 1,6;
+
+-- 테이블을 복제하는 서브 쿼리(SELECT)
+CREATE TABLE job_grades1 (SELECT grade_level FROM job_grades);
+
+
+- INSERT문 기본 : 테이블에 데이터를 삽입하는 명령어
+-- INSERT [into] 테이블명(열1, 열,2 열,3......);
+-- 태이블 이름 다음에 나오는 열은 생략가능 생략할 경우, VALUES 다음에 오는 값들ㅡ이 순서 및 개수가 테이블이 정의된 열순서와 개수가 동일해야함
+
+SELECT @@autocommit;
+SET autocommit =0;  ==>오토 커밋 해제
+
+-- 자동으로 증가하는 AUTO_INCREMENT (INSERT 할떄는 해당 열이 없다고 생각하고 입력하면 된다.)
+-- 자동으로 1부터 증가하는 값을 입력해준다.
+-- PK, UNIQUE  제약 조건을 지정해 줘야 한다. 데이터 형은 숫자 형식만 사용 가능
+
+-- auto_increment 를 이용하여 입력된 숫자가 어디까지 증가되었는지 궁금하다면?
+SELECT LAST_INSERT_ID();
+
+SET @@auto_increment_increment =3;  ==> auto_increment 증가값 변경
+
+
+
+-- 대량의 심플 데이터 생성 (입력)
+-- INSERT INTO 테이블 이름 (열1, 열2, ....) SELECT문
+CREATE TABLE testtbl4 (SELECT employee_id, first_name, last_name FROM employees);
+
+
+
+-- 데이터 수정(UPDATE) : 기존의 입력되어 있는 값을 변경하기 위해서 사용되는 명령어
+-- [형식] : UPDATE 테이블 이름 SET 열이름1 = 값1, 열이름2 = 값2,....[WHERE 조건]; WHERE 테이블의 전채 행에 대해 변경이 이루어진다.
+UPDATE testtbl4 SET last_name = '손열음' WHERE employee_id = 100;
+
+SET sql_safe_updates =0; -- safe mode 해제
+
+
+
+-- DELETE 데이터의 삭제 명령어 (적용단위 : 행 ) 행단위로 삭제
+-- [문법] DELETE FROM 테이블이름 WHERE 조건; --WHERE문이 생략 되면 전체 데이터 삭제
+DELETE FROM testtbl4 where employee_id = 110;
+
+
+DELETE FROM testtbl4 WHERE last_name like 'Chen' limit 3;
