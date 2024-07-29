@@ -1,0 +1,84 @@
+**********2024-07-29 수업31일차**********
+
+-삭제 명령어 DELETE(행단위 삭제), DROP(테이블 자체를 삭제), TRUNCATE(행단위 삭제)
+-delete 명령어가 삭제속도가 걸리는 이유 : DML 명령어는 트렌젝션 로그를 기록하는 작업 떄문이다.
+-삭제명령어 사용시 선택 : 테이블자체가 필요없는 경우 : DROP , 테이블구조는 남겨놓고 삭제를 원하면 : TRUNCATE 효율적
+-하지만 롤백이 필요한 경우라면 DELETE ==> 트렌젝션에 기록이 남기 떄문 TRUNCATE은 안남음
+
+-IGNORE 옵션은 PK오류로 인해 먼저 실행된 명령어가 실패하더라도 다음 실행문에는 영향이 가지 않도록 하는 실행옵션
+
+-ON DUPLICATE KEY UPDATE문 PK가 중복되면 업데이트처럼 사용가능
+INSERT INTO membertbl VALUES('BBK', '빠삐킴', '서울') ON DUPLICATE KEY UPDATE name = '빠삐킴', addr = '미국';
+
+
+WITH 절 CTE(Comom Table Expression) 소개
+-WITH절은 CTE(ANSI-SQL99 표준)를 표현하기 위한 구문이다. mysql8.0 이후에 추가된 기능
+-CTE는 Non-RECURSIVE(비 재귀적인), RECURSIVE(재귀적인) CTE로 구분되는데 , Non-Recursive 표현에 알아보자.
+WITH 테이블 이름(열이름1, 열이름2...)
+AS ( 쿼리문 )
+SELECT 열이름 From 테이블이름;
+
+-- 10명의 회원들에 대해서 각 지역별로 가장 큰키를 1명씩 뽑은후, 이사람들의(지역별대표) 키의 평큔을 구하세요 CTE작성
+SELECT addr, max(height) from usertbl GROUP BY addr;
+WITH maxheight (addr, max)
+AS(SELECT addr, max(height) from usertbl GROUP BY addr)
+SELECT avg(max) from maxheight;
+
+
+
+*데이터형식(DATA TYPE, 데이터형, 자료형) 및 내부 함수
+
+1)숫자 데이터 형식
+==============정수==================
+	BIT(N)		1~64BIT 표현
+    TINYINT		1BYTE
+    SMALLINT 	2BYTE
+    MEDIUMINT	3BYTE
+    INT(INTEGER)4BYTE
+    BIGINT		8BYTE
+    
+==============실수==============
+	FLOAT	4BYTE (소수점 아래 7자리 표현) -근사치 저장
+    DOUBLE	8BYTE (소수점 아래 15자리 표현) -근사치 저장
+    REAL
+    DECIMAL(M, [D]) 5~17BYTE  M: 전체자릿수  D: 소수점 이하 자릿수 EX( DECIMAL(5,2) 123.45) -정확한 수치를 저장
+
+
+
+2)문자데이터형식
+	1.CHAR(N) 1~255 BYTE : 고정길이 문자형(N에 1~255까지 지정) CHARRACTER  EX) CHAR(1) = CHAR
+    VARCHAR(N) : 공간을 효율적으로 할당하여 사용하기 위해 VARCHAR 사용 권장
+    MYSQL CHARSET => UTF-8 은 영문자나 한글에 따라 내부적 크기가 다르다.
+
+	2.VARCHAR(N) 1~65535 
+	3.BINARY(N) 1~255 고정길이의 이진 데이터값
+	  VARBINARY(N) 가변길이의 이진 데이터값
+-------------------------------------------------------
+	4.TEXT 형식
+    TINYTEXT	1~255 TEXT 데이터 값
+    TEXT		1~65535 TEXT 데이터 값
+    MEDIUMTEXT	1~16777215  TEXT 데이터 값
+    LONGTEXT	1~4294967295 TEXT 데이터 값
+ -------------------------------------------------------   
+    5. BLOB(Binary Large Object oBject) 형식 : 대용량(이미지, 음성, 동영상, 문서파일) 데이터 저장시
+---------------------------------------------------------
+    6.ENUM 형식 : 65535개의 열거형 데이터 값
+
+
+날짜와 시간 데이터 형식
+	1) DATE	3BYTE (1001-01-01 ~999-12-31 저장된다. 날짜형식만 사용함 'YYYY-MM-DD')
+	2) TIME	3BYTE	HH:MM:SS 형식
+    
+	3)* DATETIME 8BYTE	'YYYY-MM-DD HH:MM:SS'
+    
+	4) TIMESTAMP 4BYTE TIME_ZONE 시스템의 변수로 UTC시간대로 변환하여 저장
+
+SELECT cast('2024-07-01 12:30:00' AS DATETIME) AS 'DATETIME'; 
+
+
+GEOMETRY : 공간데이터 형식으로 선, 점, 다각형 같은 공간데이터 개체를 저장하고 조직이 가능한 데이터 타입
+JSON 8BYE : JAVASCRIPT OBJECT NOTATION 문서 저장
+
+
+
+
